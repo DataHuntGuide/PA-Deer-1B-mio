@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_d12e69a76a405c605209c056e32fd1f0 {
+                #map_967db7b5f8bd37edfb919594d44511fa {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,43 +39,49 @@
 <body>
     
     
-            <div class="folium-map" id="map_d12e69a76a405c605209c056e32fd1f0" ></div>
+            <div class="folium-map" id="map_967db7b5f8bd37edfb919594d44511fa" ></div>
         
 </body>
 <script>
     
     
-            var map_d12e69a76a405c605209c056e32fd1f0 = L.map(
-                "map_d12e69a76a405c605209c056e32fd1f0",
+            var map_967db7b5f8bd37edfb919594d44511fa = L.map(
+                "map_967db7b5f8bd37edfb919594d44511fa",
                 {
                     center: [41.65399272727273, -79.92643909090908],
                     crs: L.CRS.EPSG3857,
-                    zoom: 10,
+                    zoom: 12,
                     zoomControl: true,
                     preferCanvas: false,
                 }
             );
+            L.control.scale().addTo(map_967db7b5f8bd37edfb919594d44511fa);
 
             
 
         
     
-            var tile_layer_714943c3b1346bb96f41ce9a22ecb37e = L.tileLayer(
-                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_d12e69a76a405c605209c056e32fd1f0);
+            var tile_layer_4648dab121d1052893a8453c15fa412b = L.tileLayer(
+                "https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "ESRI World Topographic Map", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_967db7b5f8bd37edfb919594d44511fa);
         
     
-            var tile_layer_2bd5fdee09f7c4a1ba99d165344cac82 = L.tileLayer(
-                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
-                {"attribution": "Esri", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_d12e69a76a405c605209c056e32fd1f0);
-        
-    
-            var heat_map_b022f634bcf74d71f8eb3cfdb083af6d = L.heatLayer(
+            var heat_map_b8eba16d7d23281c9f4bb98dd13f2fd1 = L.heatLayer(
                 [[41.70185, -79.82183], [41.6363, -79.90136], [41.78782, -79.98562], [41.775, -79.97978], [41.78782, -79.98562], [41.58003, -79.8075], [41.57951, -79.79364], [41.58622, -79.98101], [41.59123, -79.97781], [41.58508, -79.97219], [41.58306, -79.98447]],
-                {"blur": 20, "maxZoom": 13, "minOpacity": 0.5, "radius": 30}
-            ).addTo(map_d12e69a76a405c605209c056e32fd1f0);
+                {"blur": 15, "maxZoom": 18, "minOpacity": 0.5, "radius": 25}
+            ).addTo(map_967db7b5f8bd37edfb919594d44511fa);
         
+    
+                var lat_lng_popup_33dfefcf7aa96241d763e4b124cda62f = L.popup();
+                function latLngPop(e) {
+                    lat_lng_popup_33dfefcf7aa96241d763e4b124cda62f
+                        .setLatLng(e.latlng)
+                        .setContent("Latitude: " + e.latlng.lat.toFixed(4) +
+                                    "<br>Longitude: " + e.latlng.lng.toFixed(4))
+                        .openOn(map_967db7b5f8bd37edfb919594d44511fa);
+                    }
+                map_967db7b5f8bd37edfb919594d44511fa.on('click', latLngPop);
+            
 </script>
 </html>
